@@ -25,7 +25,9 @@ tf.keras.backend.clear_session()
 linear_model = tf.keras.models.Sequential([
                                            tf.keras.layers.Dense(units=1, input_shape=[1], name='Single')
                                            ])
-linear_model.compile(optimizer=tf.keras.optimizers.SGD(), loss=tf.keras.losses.MeanSquaredError)
+linear_model.compile(optimizer=tf.keras.optimizers.SGD(), loss=tf.keras.losses.mean_squared_error)
+
+#linear_model.compile(optimizer=tf.keras.optimizers.SGD(), loss=tf.keras.losses.MeanSquaredError)
 print(linear_model.summary())
 
 linear_model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=20)
